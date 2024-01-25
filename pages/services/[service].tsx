@@ -243,7 +243,8 @@ export const getStaticProps: GetStaticProps = async ({
   }
   const menuOverlayItems = getMenuItems(
     populateMenuOverlayStrings(dynamicContent),
-    categories
+    categories,
+    !!ABOUT_US_ARTICLE_ID
   );
 
   const strings = populateServicePageStrings(dynamicContent);
