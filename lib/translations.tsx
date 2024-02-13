@@ -182,6 +182,7 @@ export function populateServiceMapStrings(dynamicContent: {
     labelPopulations: dynamicContent['default_populations_label'],
     labelProvider: dynamicContent['default_providers_label'],
     labelServicesTypes: dynamicContent['default_service_type_label'],
+    searchListString: dynamicContent['default_search_hint'],
   };
 }
 
