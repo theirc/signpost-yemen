@@ -34,6 +34,7 @@ import {
   DIRECTUS_COUNTRY_ID,
   DIRECTUS_INSTANCE,
   GOOGLE_ANALYTICS_IDS,
+  MAP_DEFAULT_COORDS,
   REVALIDATION_TIMEOUT_SECONDS,
   SEARCH_BAR_INDEX,
   SECTION_ICON_NAMES,
@@ -204,7 +205,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const serviceTypes = await getDirectusServiceCategories(directus);
   const providersArray = await getDirectusProviders(
     directus,
-    DIRECTUS_COUNTRY_ID
+    DIRECTUS_COUNTRY_ID,
+    uniqueProvidersIdsArray
   );
 
   const providers = providersArray
@@ -228,6 +230,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       socialMediaLinks: populateSocialMediaLinks(dynamicContent),
       serviceMapProps: {
         services,
+        defaultCoords: MAP_DEFAULT_COORDS,
         shareButton: getShareButtonStrings(dynamicContent),
         serviceTypes,
         providers,
