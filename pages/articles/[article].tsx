@@ -13,13 +13,17 @@ import { createDefaultSearchBarProps } from '@ircsignpost/signpost-base/dist/src
 import {
   CategoryWithSections,
   ZendeskCategory,
+  getArticle,
+  getArticles,
+  getCategories,
+  getCategoriesWithSections,
+  getTranslationsFromDynamicContent,
 } from '@ircsignpost/signpost-base/dist/src/zendesk';
 import { GetStaticProps } from 'next';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import { useBreadcrumbs } from '../../context/BreadcrumbsContext';
 import {
   ABOUT_US_ARTICLE_ID,
   CATEGORIES_TO_HIDE,
@@ -49,14 +53,6 @@ import {
   populateMenuOverlayStrings,
 } from '../../lib/translations';
 import { getSiteUrl, getZendeskMappedUrl, getZendeskUrl } from '../../lib/url';
-// TODO Use real Zendesk API implemetation.
-import {
-  getArticle,
-  getArticles,
-  getCategories,
-  getCategoriesWithSections,
-  getTranslationsFromDynamicContent,
-} from '../../lib/zendesk-fake';
 
 interface ArticleProps {
   pageTitle: string;
@@ -92,8 +88,6 @@ export default function Article({
 }: ArticleProps) {
   const router = useRouter();
   const { publicRuntimeConfig } = getConfig();
-  const { breadcrumbs } = useBreadcrumbs();
-
   return (
     <ArticlePage
       pageTitle={pageTitle}
@@ -146,7 +140,6 @@ export default function Article({
             locale: locale,
           },
           strings: strings.articleContentStrings,
-          previosURL: breadcrumbs,
         }}
       />
     </ArticlePage>

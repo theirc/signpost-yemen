@@ -7,13 +7,17 @@ import type { Lang } from '@ircsignpost/signpost-base/dist/src/locale-select-pag
 import Image from 'next/image';
 
 import { SITE_TITLE } from '../lib/constants';
+import logo from '../public/yemen_logo_transparent_white_gold.png';
 
 const langs: Lang[] = [
+  {
+    langShort: 'ar',
+    langLong: 'العربية',
+  },
   {
     langShort: 'en-us',
     langLong: 'English',
   },
-  // TODO: Add supported languages.
 ];
 
 /** The locale selection page.
@@ -33,7 +37,7 @@ export default function LocaleSelectPage() {
       siteTitle={SITE_TITLE}
       message={'Please choose your preferred language'}
       langs={langs}
-      image={<span>TODO</span>}
+      image={<Image src={logo} alt="icon" />}
     />
   );
 }

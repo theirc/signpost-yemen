@@ -16,6 +16,7 @@ import {
 export interface CustomMenuOverlayStrings extends MenuOverlayStrings {
   information: string;
   about: string;
+  services: string;
 }
 
 // TODO Update footer items if needed.
@@ -25,6 +26,16 @@ export function getFooterItems(
 ): MenuOverlayItem[] {
   let items: MenuOverlayItem[] = [];
   items.push({ key: 'home', label: strings.home, href: '/' });
+  items.push({
+    key: 'about',
+    label: strings.about,
+    href: `/articles/${ABOUT_US_ARTICLE_ID}`,
+  });
+  items.push({
+    key: 'services',
+    label: strings.services, // Make sure this string is defined in your strings object
+    href: '/#service-map',
+  });
   return items;
 }
 
@@ -48,6 +59,12 @@ export function getMenuItems(
       href: `/articles/${ABOUT_US_ARTICLE_ID}`,
     });
   }
+  items.push({
+    key: 'services',
+    label: strings.services, // Make sure this string is defined in your strings object
+    href: '/#service-map',
+  });
+  // Include other menu items as needed.
   return items;
 }
 

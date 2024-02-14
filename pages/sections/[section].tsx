@@ -9,12 +9,19 @@ import {
   Article,
   Section,
 } from '@ircsignpost/signpost-base/dist/src/topic-with-articles';
+import {
+  getArticle,
+  getArticlesForSection,
+  getCategoriesWithSections,
+  getSection,
+  getSections,
+  getTranslationsFromDynamicContent,
+} from '@ircsignpost/signpost-base/dist/src/zendesk';
 import { GetStaticProps } from 'next';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-import { useBreadcrumbs } from '../../context/BreadcrumbsContext';
 import {
   ABOUT_US_ARTICLE_ID,
   CATEGORIES_TO_HIDE,
@@ -42,15 +49,6 @@ import {
   populateSectionStrings,
 } from '../../lib/translations';
 import { getZendeskMappedUrl, getZendeskUrl } from '../../lib/url';
-// TODO Use real Zendesk API implementation.
-import {
-  getArticle,
-  getArticlesForSection,
-  getCategoriesWithSections,
-  getSection,
-  getSections,
-  getTranslationsFromDynamicContent,
-} from '../../lib/zendesk-fake';
 
 interface CategoryProps {
   currentLocale: Locale;
@@ -76,13 +74,6 @@ export default function Category({
 }: CategoryProps) {
   const { publicRuntimeConfig } = getConfig();
   const router = useRouter();
-  const { setBreadcrumbs } = useBreadcrumbs();
-
-  useEffect(() => {
-    const url = router.asPath;
-    const test = { url, title: section.name };
-    setBreadcrumbs(test);
-  }, [router.asPath, setBreadcrumbs, section.name]);
 
   return (
     <SectionPage

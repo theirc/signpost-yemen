@@ -1,17 +1,22 @@
 import CategoryPage, {
-  CategoryStrings, // TODO Use real signpost-base/Zendesk API implementation.
-  // getSectionsForCategory,
+  CategoryStrings,
+  getCategorySection,
+  getSectionsForCategory,
 } from '@ircsignpost/signpost-base/dist/src/category-page';
 import CookieBanner from '@ircsignpost/signpost-base/dist/src/cookie-banner';
 import { MenuOverlayItem } from '@ircsignpost/signpost-base/dist/src/menu-overlay';
 import { MenuItem } from '@ircsignpost/signpost-base/dist/src/select-menu';
 import { Section } from '@ircsignpost/signpost-base/dist/src/topic-with-articles';
+import {
+  getArticle,
+  getCategories,
+  getTranslationsFromDynamicContent,
+} from '@ircsignpost/signpost-base/dist/src/zendesk';
 import { GetStaticProps } from 'next';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { useBreadcrumbs } from '../../context/BreadcrumbsContext';
 import {
   ABOUT_US_ARTICLE_ID,
   CATEGORIES_TO_HIDE,
@@ -40,15 +45,6 @@ import {
   populateMenuOverlayStrings,
 } from '../../lib/translations';
 import { getZendeskMappedUrl, getZendeskUrl } from '../../lib/url';
-// TODO Use real Zendesk API implementation.
-import {
-  getArticle,
-  getArticlesForSection,
-  getCategories,
-  getCategorySection,
-  getSectionsForCategory,
-  getTranslationsFromDynamicContent,
-} from '../../lib/zendesk-fake';
 
 interface CategoryProps {
   currentLocale: Locale;
@@ -79,16 +75,6 @@ export default function Category({
   const [sectionDisplayed, setSectionDisplayed] = useState<Section[]>(sections);
   const { publicRuntimeConfig } = getConfig();
   const router = useRouter();
-  const { setBreadcrumbs } = useBreadcrumbs();
-
-  useEffect(() => {
-    const url = router.asPath;
-    const test = {
-      url,
-      title: categoryItems.filter((x) => x.value === categoryId)[0]?.name,
-    };
-    setBreadcrumbs(test);
-  }, [categoryId, categoryItems, router.asPath, setBreadcrumbs]);
 
   const handleSectionFilterChange = async (val: number) => {
     const SECTION = await getCategorySection(
