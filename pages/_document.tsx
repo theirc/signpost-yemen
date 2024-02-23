@@ -4,6 +4,13 @@ function Document() {
   return (
     <Html>
       <Head>
+        <meta
+          name="google-site-verification"
+          content="dsBO30EmevEdAHbyaFih1ref-Ljm6QpOXBxC5UBH9Hs"
+        />
+        <meta property="og:title" content="Dalilak" />
+        <meta property="og:description" content="Dalilak Website" />
+        <meta property="og:image" content="https://dalilak.ngo/api/og-image" />
         <script
           src="https://kit.fontawesome.com/027db3ea3f.js"
           crossOrigin="anonymous"
