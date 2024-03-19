@@ -80,6 +80,8 @@ export const HOME_PAGE_DYNAMIC_CONTENT_PLACEHOLDERS = [
   'default_banner_messenger_title',
   'default_banner_whatsapp_title',
   'dalilak_facebook_link',
+  'dalilak_whatsapp_link',
+  'dalilak_messenger_link',
   // Main body strings.
   'default_information_title',
   'dalilak_information_description',
@@ -136,13 +138,11 @@ export function populateSocialMediaLinks(dynamicContent: {
     },
     whatsappLink: {
       title: dynamicContent['default_banner_whatsapp_title'],
-      // TODO: create Dynamic content with link to Whatsapp page
-      href: '', // dynamicContent['<site_prefix>_whatsapp_link']
+      href: dynamicContent['dalilak_whatsapp_link'],
     },
     messengerLink: {
       title: dynamicContent['default_banner_messenger_title'],
-      // TODO: create Dynamic content with link to Messenger page
-      href: '', // dynamicContent['<site_prefix>_messenger_link']
+      href: dynamicContent['dalilak_messenger_link'],
     },
   };
 }
