@@ -6,7 +6,7 @@ function Document() {
       <Head>
         <meta
           name="google-site-verification"
-          content="dsBO30EmevEdAHbyaFih1ref-Ljm6QpOXBxC5UBH9Hs"
+          content="jJU7gklRBoNg-dWoFFYKqMg2jN6vegf56-AwE2AtfrY"
         />
         <meta property="og:title" content="Dalilak" />
         <meta property="og:description" content="Dalilak Website" />
