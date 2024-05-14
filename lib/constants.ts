@@ -44,7 +44,6 @@ export const CATEGORIES_TO_HIDE: number[] = [15452284318749];
 // https://developer.zendesk.com/api-reference/ticketing/account-configuration/locales/
 // Keep in sync with locales configured in /next.config.js.
 export const DYNAMIC_CONTENT_LOCALES: { [key: string]: number } = {
-  'en-us': 1,
   ar: 66,
 };
 

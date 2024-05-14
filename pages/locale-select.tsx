@@ -14,10 +14,6 @@ const langs: Lang[] = [
     langShort: 'ar',
     langLong: 'العربية',
   },
-  {
-    langShort: 'en-us',
-    langLong: 'English',
-  },
 ];
 
 /** The locale selection page.
@@ -35,7 +31,7 @@ export default function LocaleSelectPage() {
   return (
     <LocaleSelectPageBase
       siteTitle={SITE_TITLE}
-      message={'Please choose your preferred language'}
+      message={'يرجى اختيار لغتك المفضلة'}
       langs={langs}
       image={<Image src={logo} alt="icon" />}
     />

@@ -6,7 +6,7 @@ import logoEnUs from '../public/yemen_logo_transparent_white_gold.png';
 export const getHeaderLogoProps = (currentLocale: Locale): LogoProps => {
   let imgSrc: string;
   switch (currentLocale.url) {
-    case 'en-us':
+    case 'ar':
     default:
       imgSrc = logoEnUs.src;
       break;
