@@ -39,6 +39,7 @@ export const COMMON_DYNAMIC_CONTENT_PLACEHOLDERS = [
   'default_download',
   'default_last_updated',
   'default_article_reader_title',
+  'default_home_breadcrumb_title',
   'default_banner_link_share_title',
   'default_filter_label',
   'default_most_recent_filter_option',
@@ -273,7 +274,7 @@ export function populateArticleContentStrings(dynamicContent: {
   return {
     textReaderTitle: dynamicContent['default_article_reader_title'],
     shareButtonStrings: getShareButtonStrings(dynamicContent),
-    homeBreadcrumbString: 'Home',
+    homeBreadcrumbString: dynamicContent['default_home_breadcrumb_title'],
   };
 }
 
@@ -317,7 +318,7 @@ export function populateCategoryStrings(dynamicContent: {
     searchBarStrings: populateSearchBarStrings(dynamicContent),
     footerStrings: populateFooterStrings(dynamicContent),
     selectSubTopicLabel: dynamicContent['default_select_subtopic'],
-    homeBreadcrumbString: 'Home',
+    homeBreadcrumbString: dynamicContent['default_home_breadcrumb_title'],
   };
 }
 
@@ -329,7 +330,7 @@ export function populateSectionStrings(dynamicContent: {
     selectTopicLabel: getSelectTopicLabel(dynamicContent),
     searchBarStrings: populateSearchBarStrings(dynamicContent),
     footerStrings: populateFooterStrings(dynamicContent),
-    homeBreadcrumbString: 'Home',
+    homeBreadcrumbString: dynamicContent['default_home_breadcrumb_title'],
   };
 }
 
